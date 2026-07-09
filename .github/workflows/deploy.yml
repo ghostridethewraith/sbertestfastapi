@@ -97,7 +97,7 @@ jobs:
             docker compose -f docker-compose.prod.yml up -d
             docker compose -f docker-compose.prod.yml ps
             for attempt in $(seq 1 30); do
-              if curl -kfsS "https://127.0.0.1:${{ env.HTTP_PORT }}/healthz"; then
+              if curl -kfsS "https://127.0.0.1/healthz"; then
                 exit 0
               fi
               sleep 2
