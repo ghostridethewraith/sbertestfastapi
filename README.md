@@ -1,3 +1,4 @@
+[![Test, Build, Deploy](https://github.com/ghostridethewraith/sbertestfastapi/actions/workflows/deploy.yml/badge.svg)](https://github.com/ghostridethewraith/sbertestfastapi/actions/workflows/deploy.yml)
 # IP Service
 
 Небольшой сервис на FastAPI, который возвращает IP-адрес клиента и, при
