@@ -77,7 +77,7 @@ jobs:
           host: ${{ env.SERVER_HOST }}
           username: ${{ env.SERVER_USER }}
           key: ${{ env.SERVER_SSH_KEY }}
-          source: "docker-compose.prod.yml,nginx.conf"
+          source: "docker-compose.prod.yml,nginx.prod.conf"
           target: ${{ env.SERVER_PATH }}
 
       - name: Deploy on server
@@ -97,7 +97,7 @@ jobs:
             docker compose -f docker-compose.prod.yml up -d
             docker compose -f docker-compose.prod.yml ps
             for attempt in $(seq 1 30); do
-              if curl -fsS "http://127.0.0.1:${{ env.HTTP_PORT }}/healthz"; then
+              if curl -kfsS "https://127.0.0.1:${{ env.HTTP_PORT }}/healthz"; then
                 exit 0
               fi
               sleep 2
